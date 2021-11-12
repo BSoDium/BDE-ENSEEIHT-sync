@@ -36,7 +36,12 @@ function main() {
 
   // load script properties
   const scriptProperties = PropertiesService.getScriptProperties();
-  const history = scriptProperties.getProperty('history').split(jsonConst.historyValueSeparator);
+  let history = scriptProperties.getProperty('history')
+  if (!history) { // first time runnning the script, we need to initialize the property
+    history = '';
+    scriptProperties.setProperty('history', history)
+  }
+  history = history.split(jsonConst.historyValueSeparator);
   Logger.log(`History : [${history}]`)
 
   const events = fetchEvents();
@@ -50,3 +55,4 @@ function main() {
     }
   })
 }
+
