@@ -1,5 +1,5 @@
 # BDE-ENSEEIHT-sync
-A simple Google Apps script to synchronize events with Google calendar
+A simple Google Apps script that synchronizes ENSEEIHT's BDE events with Google calendar, so you don't miss out any more afterwork parties because you forgot to check the website on time. The script will also notify you by sending an email when a new event is published.
 
 ## Installation
 - Open the [Google Apps Script](https://script.google.com/d/1bh3OuTim7n_OiK82J_7WL4XKahliSL1DXA2DduQK7zfBJHIvFitgQQg6/edit?usp=sharing) project
