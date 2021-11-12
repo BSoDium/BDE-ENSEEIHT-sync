@@ -64,12 +64,14 @@ function fetchEvents() {
  * Create and optional event on the target calendar.
  */
 function createOptional(targetCalendar, scriptProperties, summary, startDate, endDate, eventUrl, description=null, location=null, sendInvites=true) {
+  const userEmail = Session.getEffectiveUser().getEmail()
+  
   targetCalendar.createEvent(summary,
     startDate,
     endDate,
     {location,
     description,
-    guests: 'negreljerzy.philippe@gmail.com',
+    guests: userEmail,
     sendInvites});
 
     // send email
@@ -88,7 +90,7 @@ function createOptional(targetCalendar, scriptProperties, summary, startDate, en
     </div>
 </body>`
     MailApp.sendEmail({
-      to: Session.getEffectiveUser().getEmail(),
+      to: userEmail,
       subject: `[BDE ENSEEIHT] New event added`,
       htmlBody: emailBody
     })
