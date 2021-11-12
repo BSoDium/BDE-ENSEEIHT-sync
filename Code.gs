@@ -1,3 +1,6 @@
+/**
+ * Setup triggers and install the app for this google account
+ */
 function install() {
   //Delete any already existing triggers so we don't create excessive triggers
   deleteAllTriggers();
@@ -9,6 +12,9 @@ function install() {
   Logger.log("Installation complete.")
 }
 
+/**
+ * Reset history and run the main program.
+ */
 function debug() {
   resetHistory();
   main();

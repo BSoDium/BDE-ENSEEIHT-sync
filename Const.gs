@@ -52,6 +52,9 @@ const jsonConst = {
   url: {
     main : "https://billetterie.inpt.fr/event/",
     auth : "https://cas.inpt.fr/login?service=https%3A%2F%2Fbilletterie.inpt.fr%2Faccounts%2Fcas_login%2F%3Fnext%3D%252Fevent%252F"
+  },
+  contact: {
+    developer: "negreljerzy.philippe@gmail.com"
   }
 }
 

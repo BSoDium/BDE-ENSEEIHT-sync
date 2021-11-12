@@ -73,10 +73,7 @@ function createOptional(targetCalendar, scriptProperties, summary, startDate, en
     sendInvites});
 
     // send email
-    MailApp.sendEmail({
-      to: jsonSettings.userEmail,
-      subject: `[Billeterie BDE] - New event added`,
-      htmlBody: `<body style="text-align: center;">
+    const emailBody = `<body style="text-align: center;">
     <img src="https://www.bde.enseeiht.fr/static/assets/n7/logo.png" style="width: 200px; height: fit-content; margin-bottom: 40px;"/>
     <div class="container" style="text-align: center; background-color: rgba(20, 50, 70, 0.1); border-radius: 20px; padding: 10px;" >
       <h1 style="margin: 0;">Hey ${jsonSettings.userName} 👋</h1>
@@ -90,8 +87,11 @@ function createOptional(targetCalendar, scriptProperties, summary, startDate, en
       </b>
     </div>
 </body>`
-
-    });
+    MailApp.sendEmail({
+      to: Session.getEffectiveUser().getEmail(),
+      subject: `[BDE ENSEEIHT] New event added`,
+      htmlBody: emailBody
+    })
 
     // record added event if the previous action was completed successfully
     const history = scriptProperties.getProperty('history');
